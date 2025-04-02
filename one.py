@@ -1,13 +1,12 @@
 import streamlit as st
 import requests
 
-# Streamlit App Title
 st.title("AI Utility Tool")
 
-# User selects mode
+
 mode = st.radio("Choose an AI Task", ["Image Generation (Hugging Face)", "Realtime Query (Groq)"])
 
-# API Key Inputs - Only show the relevant one
+
 if mode == "Image Generation (Hugging Face)":
     huggingface_api_key = st.text_input("Hugging Face API Key", type="password")
     st.markdown("🔑 [Get Hugging Face API Key](https://huggingface.co/settings/tokens)")
@@ -15,7 +14,7 @@ else:
     groq_api_key = st.text_input("Groq API Key", type="password")
     st.markdown("🔑 [Get Groq API Key](https://console.groq.com/)")
 
-# Function to Call Hugging Face API
+
 def generate_image(prompt, api_key):
     if not api_key:
         st.error("Please enter your Hugging Face API Key.")
@@ -36,7 +35,6 @@ def generate_image(prompt, api_key):
 
     return None
 
-# Function to Call Groq API
 def get_groq_response(query, api_key):
     if not api_key:
         st.error("Please enter your Groq API Key.")
@@ -70,7 +68,7 @@ def get_groq_response(query, api_key):
 
     return None
 
-# Handle Image Generation
+
 if mode == "Image Generation (Hugging Face)":
     st.subheader("Generate Images using Hugging Face")
     
@@ -81,7 +79,7 @@ if mode == "Image Generation (Hugging Face)":
         if image:
             st.image(image, caption="Generated Image")
 
-# Handle Realtime Query
+
 elif mode == "Realtime Query (Groq)":
     st.subheader("Ask Anything using Groq API")
 
