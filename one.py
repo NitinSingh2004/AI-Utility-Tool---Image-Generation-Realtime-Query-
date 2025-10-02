@@ -47,7 +47,7 @@ def get_groq_response(query, api_key):
     api_url = "https://api.groq.com/openai/v1/chat/completions"
 
     payload = {
-        "model": "llama-3.3-70b-versatile"",
+        "model": "llama-3.3-70b-versatile",
         "messages": [{"role": "user", "content": query}],
         "temperature": 0.7,
         "max_tokens": 500
@@ -93,5 +93,6 @@ elif mode == "Realtime Query (Groq)":
 # Footer
 st.markdown("---")
 st.markdown("Built with ❤️ using Streamlit")
+
 
 
